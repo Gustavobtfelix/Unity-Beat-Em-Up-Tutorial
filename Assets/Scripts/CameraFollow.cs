@@ -63,10 +63,10 @@ public class CameraFollow : MonoBehaviour {
 
 		// The target x and y coordinates should not be larger than the maximum or smaller than the minimum.
 		targetX = Mathf.Clamp(targetX, minXAndY.x, maxXAndY.x);
-		targetY = Mathf.Clamp(targetY, minXAndY.y, maxXAndY.y);
+		// targetY = Mathf.Clamp(targetY, minXAndY.y, maxXAndY.y);
 
 		// Set the camera's position to the target position with the same z component.
-		transform.position = new Vector3(targetX, targetY, transform.position.z);
+		transform.position = new Vector3(targetX, transform.position.y, transform.position.z);
 	}
 }
 

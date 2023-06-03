@@ -76,12 +76,12 @@ public class PlayerAdam : MonoBehaviour
                 jump = false;
                 rb.AddForce(Vector3.up * jumpForce);
             }
-            //fixa posicao do jogador dentro do range da Camera main
+            //fixa posicao do jogador dentro do range da Camera main nas 4 direcoes
             float minWidth = Camera.main.ScreenToWorldPoint(new Vector3(0,0,10)).x;
             float maxWidth = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 10)).x;
             rb.position = new Vector3(Mathf.Clamp(rb.position.x, minWidth + 1, maxWidth - 1),
                 rb.position.y,
-                Mathf.Clamp(rb.position.z, minHeight + 1, maxHeight - 1)
+                Mathf.Clamp(rb.position.z, minHeight, maxHeight)
                 );
         }
     }
