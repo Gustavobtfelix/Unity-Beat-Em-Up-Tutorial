@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     protected Animator anim;
     private Transform groundCheck;
     private bool onGround;
-    private bool facingRight = false;
+    protected bool facingRight = false;
     private Transform target;
     protected bool isDead = false;
     private float zForce;
