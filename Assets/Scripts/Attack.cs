@@ -20,10 +20,17 @@ public class Attack : MonoBehaviour
     private void OnTriggerEnter(Collider other) 
     {
         Enemy enemy = other.GetComponent<Enemy>();
+        PlayerAdam player = other.GetComponent<PlayerAdam>();
         if(enemy != null)
         {
             //chama funcao de atacar inimigo ao interagir
             enemy.TookDamage(damage);
+        }
+
+        if(player != null)
+        {
+            //chama funcao de atacar inimigo ao interagir
+            player.TookDamage(damage);
         }
         
     }

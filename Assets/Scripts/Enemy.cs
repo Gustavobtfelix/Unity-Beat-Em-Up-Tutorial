@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     public float damageTime = 0.5f;
     public int maxHealth;
     public float attackRate = 1f;
+    public string enemyName;
+    public Sprite enemyImage;
 
     private int currentHealth;
     private float currentSpeed;
@@ -88,14 +90,14 @@ public class Enemy : MonoBehaviour
                 hForce = 0;
             }
             
-            //inimigo nãao se move quando esta tomando dano
+            //inimigo nao se move quando esta tomando dano
             if(!damaged)
                 rb.velocity = new Vector3(hForce * currentSpeed, 0, zForce * currentSpeed);
 
             anim.SetFloat("Speed", Mathf.Abs(currentSpeed));
 
 
-            //verifica
+            //verifica se esta proximo do jogador e valida tempo do ultimo ataque
             if(Mathf.Abs(targetDistance.x) < 1.5f && Mathf.Abs(targetDistance.z) < 1.5f && Time.time > nextAttack)
             {
                 anim.SetTrigger("Attack");
@@ -120,6 +122,8 @@ public class Enemy : MonoBehaviour
             damaged = true;
             currentHealth -= damage;
             anim.SetTrigger("HitDamage");
+            //mostra vida do inimigo no Canvas
+            FindObjectOfType<UIManager>().UpdateEnemyUI(maxHealth, currentHealth, enemyName, enemyImage);
             if(currentHealth <= 0)
             {
                 //muda status e empurra inimigo
