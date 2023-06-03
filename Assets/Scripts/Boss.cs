@@ -14,7 +14,7 @@ public class Boss : Enemy
 
     }
 
-    void ThrowBoomrang()
+    void ThrowBoomerang()
     {
         if(!isDead)
         {

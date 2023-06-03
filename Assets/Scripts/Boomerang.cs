@@ -7,10 +7,11 @@ public class Boomerang : MonoBehaviour
     public int direction = 1;
 
     private Rigidbody rb;
+
     // Start is called before the first frame update
     void Start()
     {
-        rb.GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         StartCoroutine(MoveBoomerang());
     }
 
