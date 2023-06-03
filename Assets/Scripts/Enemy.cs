@@ -15,12 +15,12 @@ public class Enemy : MonoBehaviour
     private int currentHealth;
     private float currentSpeed;
     private Rigidbody rb;
-    private Animator anim;
+    protected Animator anim;
     private Transform groundCheck;
     private bool onGround;
     private bool facingRight = false;
     private Transform target;
-    private bool isDead = false;
+    protected bool isDead = false;
     private float zForce;
     private float walkTimer;
     private bool damaged = false;
